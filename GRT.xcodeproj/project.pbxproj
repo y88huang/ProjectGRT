@@ -7,11 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3079668A00C84A129D12EF91 /* libPods-GRT.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2F9B21716274573B6F0EA71 /* libPods-GRT.a */; };
 		69DD7E2719BF319E0054C65D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DD7E2619BF319E0054C65D /* AppDelegate.swift */; };
-		69DD7E2919BF319E0054C65D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DD7E2819BF319E0054C65D /* ViewController.swift */; };
+		69DD7E2919BF319E0054C65D /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DD7E2819BF319E0054C65D /* RootViewController.swift */; };
 		69DD7E2C19BF319E0054C65D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69DD7E2A19BF319E0054C65D /* Main.storyboard */; };
 		69DD7E2E19BF319E0054C65D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69DD7E2D19BF319E0054C65D /* Images.xcassets */; };
 		69DD7E3A19BF319E0054C65D /* GRTTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DD7E3919BF319E0054C65D /* GRTTests.swift */; };
+		69DD7E4419BF54FC0054C65D /* grtdatabase.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 69DD7E4319BF54FC0054C65D /* grtdatabase.sqlite */; };
+		69DD7E4A19BF557A0054C65D /* GRTDatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 69DD7E4919BF557A0054C65D /* GRTDatabaseManager.m */; };
+		69DD7E4C19C1EB290054C65D /* GRTAlarmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DD7E4B19C1EB290054C65D /* GRTAlarmCell.swift */; };
+		69DD7E4F19C2E80E0054C65D /* GRTBusTrip.m in Sources */ = {isa = PBXBuildFile; fileRef = 69DD7E4E19C2E80E0054C65D /* GRTBusTrip.m */; };
+		69DD7E5219C2F33C0054C65D /* GRTBusStop.m in Sources */ = {isa = PBXBuildFile; fileRef = 69DD7E5119C2F33C0054C65D /* GRTBusStop.m */; };
+		69DD7E5419C2F7D10054C65D /* AddTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DD7E5319C2F7D10054C65D /* AddTripViewController.swift */; };
+		69DD7E5619C3F8010054C65D /* TripDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DD7E5519C3F8010054C65D /* TripDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,12 +36,25 @@
 		69DD7E2119BF319E0054C65D /* GRT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GRT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69DD7E2519BF319E0054C65D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		69DD7E2619BF319E0054C65D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		69DD7E2819BF319E0054C65D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		69DD7E2819BF319E0054C65D /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		69DD7E2B19BF319E0054C65D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		69DD7E2D19BF319E0054C65D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		69DD7E3319BF319E0054C65D /* GRTTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GRTTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		69DD7E3819BF319E0054C65D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		69DD7E3919BF319E0054C65D /* GRTTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GRTTests.swift; sourceTree = "<group>"; };
+		69DD7E4319BF54FC0054C65D /* grtdatabase.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = grtdatabase.sqlite; sourceTree = "<group>"; };
+		69DD7E4519BF554B0054C65D /* GRT-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GRT-Bridging-Header.h"; sourceTree = "<group>"; };
+		69DD7E4819BF557A0054C65D /* GRTDatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTDatabaseManager.h; sourceTree = "<group>"; };
+		69DD7E4919BF557A0054C65D /* GRTDatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTDatabaseManager.m; sourceTree = "<group>"; };
+		69DD7E4B19C1EB290054C65D /* GRTAlarmCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GRTAlarmCell.swift; sourceTree = "<group>"; };
+		69DD7E4D19C2E80E0054C65D /* GRTBusTrip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTBusTrip.h; sourceTree = "<group>"; };
+		69DD7E4E19C2E80E0054C65D /* GRTBusTrip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTBusTrip.m; sourceTree = "<group>"; };
+		69DD7E5019C2F33C0054C65D /* GRTBusStop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTBusStop.h; sourceTree = "<group>"; };
+		69DD7E5119C2F33C0054C65D /* GRTBusStop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTBusStop.m; sourceTree = "<group>"; };
+		69DD7E5319C2F7D10054C65D /* AddTripViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTripViewController.swift; sourceTree = "<group>"; };
+		69DD7E5519C3F8010054C65D /* TripDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripDetailViewController.swift; sourceTree = "<group>"; };
+		A20A87A821E4470EBC3996E7 /* Pods-GRT.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GRT.xcconfig"; path = "Pods/Pods-GRT.xcconfig"; sourceTree = "<group>"; };
+		F2F9B21716274573B6F0EA71 /* libPods-GRT.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GRT.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3079668A00C84A129D12EF91 /* libPods-GRT.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,6 +82,8 @@
 				69DD7E2319BF319E0054C65D /* GRT */,
 				69DD7E3619BF319E0054C65D /* GRTTests */,
 				69DD7E2219BF319E0054C65D /* Products */,
+				A20A87A821E4470EBC3996E7 /* Pods-GRT.xcconfig */,
+				8ABDF604A7AB4ACF95E7CF92 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -75,11 +99,22 @@
 		69DD7E2319BF319E0054C65D /* GRT */ = {
 			isa = PBXGroup;
 			children = (
+				69DD7E4319BF54FC0054C65D /* grtdatabase.sqlite */,
 				69DD7E2619BF319E0054C65D /* AppDelegate.swift */,
-				69DD7E2819BF319E0054C65D /* ViewController.swift */,
+				69DD7E2819BF319E0054C65D /* RootViewController.swift */,
+				69DD7E5319C2F7D10054C65D /* AddTripViewController.swift */,
+				69DD7E5519C3F8010054C65D /* TripDetailViewController.swift */,
+				69DD7E4819BF557A0054C65D /* GRTDatabaseManager.h */,
+				69DD7E4919BF557A0054C65D /* GRTDatabaseManager.m */,
+				69DD7E4D19C2E80E0054C65D /* GRTBusTrip.h */,
+				69DD7E4E19C2E80E0054C65D /* GRTBusTrip.m */,
+				69DD7E5019C2F33C0054C65D /* GRTBusStop.h */,
+				69DD7E5119C2F33C0054C65D /* GRTBusStop.m */,
+				69DD7E4B19C1EB290054C65D /* GRTAlarmCell.swift */,
 				69DD7E2A19BF319E0054C65D /* Main.storyboard */,
 				69DD7E2D19BF319E0054C65D /* Images.xcassets */,
 				69DD7E2419BF319E0054C65D /* Supporting Files */,
+				69DD7E4519BF554B0054C65D /* GRT-Bridging-Header.h */,
 			);
 			path = GRT;
 			sourceTree = "<group>";
@@ -109,6 +144,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		8ABDF604A7AB4ACF95E7CF92 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F2F9B21716274573B6F0EA71 /* libPods-GRT.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -116,9 +159,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 69DD7E3D19BF319E0054C65D /* Build configuration list for PBXNativeTarget "GRT" */;
 			buildPhases = (
+				4D897408E7514CE58E36F0F1 /* Check Pods Manifest.lock */,
 				69DD7E1D19BF319E0054C65D /* Sources */,
 				69DD7E1E19BF319E0054C65D /* Frameworks */,
 				69DD7E1F19BF319E0054C65D /* Resources */,
+				B70A9D171CDA44E995A7EEB2 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -190,6 +235,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				69DD7E2C19BF319E0054C65D /* Main.storyboard in Resources */,
+				69DD7E4419BF54FC0054C65D /* grtdatabase.sqlite in Resources */,
 				69DD7E2E19BF319E0054C65D /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -203,13 +249,52 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4D897408E7514CE58E36F0F1 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B70A9D171CDA44E995A7EEB2 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-GRT-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		69DD7E1D19BF319E0054C65D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				69DD7E2919BF319E0054C65D /* ViewController.swift in Sources */,
+				69DD7E5419C2F7D10054C65D /* AddTripViewController.swift in Sources */,
+				69DD7E2919BF319E0054C65D /* RootViewController.swift in Sources */,
+				69DD7E5619C3F8010054C65D /* TripDetailViewController.swift in Sources */,
+				69DD7E4F19C2E80E0054C65D /* GRTBusTrip.m in Sources */,
+				69DD7E5219C2F33C0054C65D /* GRTBusStop.m in Sources */,
+				69DD7E4A19BF557A0054C65D /* GRTDatabaseManager.m in Sources */,
 				69DD7E2719BF319E0054C65D /* AppDelegate.swift in Sources */,
+				69DD7E4C19C1EB290054C65D /* GRTAlarmCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,23 +409,30 @@
 		};
 		69DD7E3E19BF319E0054C65D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A20A87A821E4470EBC3996E7 /* Pods-GRT.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = GRT/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "GRT/GRT-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		69DD7E3F19BF319E0054C65D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A20A87A821E4470EBC3996E7 /* Pods-GRT.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = GRT/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "GRT/GRT-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -397,6 +489,7 @@
 				69DD7E3F19BF319E0054C65D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		69DD7E4019BF319E0054C65D /* Build configuration list for PBXNativeTarget "GRTTests" */ = {
 			isa = XCConfigurationList;
@@ -405,6 +498,7 @@
 				69DD7E4219BF319E0054C65D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

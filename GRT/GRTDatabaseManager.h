@@ -10,4 +10,8 @@
 
 @interface GRTDatabaseManager : NSObject
 
+@property (nonatomic, strong) NSMutableArray *routes;
+
++ (id)sharedInstance;
+- (void)getAllRoutes;
 @end
