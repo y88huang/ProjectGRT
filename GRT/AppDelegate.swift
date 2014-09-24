@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window!.makeKeyAndVisible();
         var root = RootViewController();
         var nav = UINavigationController(rootViewController: root);
-        nav.navigationBar!.tintColor = UIColor.blueColor();
+        nav.navigationBar.tintColor = UIColor.blueColor();
         nav.navigationBar.backgroundColor = UIColor.redColor();
         self.window!.rootViewController = nav;
         return true

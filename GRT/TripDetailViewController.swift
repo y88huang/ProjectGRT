@@ -31,14 +31,14 @@ class TripDetailViewController : UIViewController, UITableViewDataSource, UITabl
         self.title = "DETAIL";
     }
     
-    func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var stop : GRTBusStop! = self.busTrip?.stops[indexPath.row] as GRTBusStop;
         let cell : UITableViewCell! = tableView.dequeueReusableCellWithIdentifier("cell") as UITableViewCell;
-        cell.textLabel.text = stop.stopName;
+        cell.textLabel!.text = stop.stopName;
         return cell;
     }
     
-    func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.busTrip!.stops.count;
     }
 }

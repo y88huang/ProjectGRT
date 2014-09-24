@@ -35,9 +35,9 @@ class RootViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.tableView!.separatorStyle = UITableViewCellSeparatorStyle.None;
         self.view.addSubview(self.tableView!);
         self.title = "GRT";
-        self.navigationController.navigationBar.barTintColor = UIColor(red: 0.0, green: 47.0/255.0, blue: 167.0/255.0, alpha: 1.0);
-        self.navigationController.navigationBar.tintColor = UIColor.whiteColor();
-        self.navigationController.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
+        self.navigationController!.navigationBar.barTintColor = UIColor(red: 0.0, green: 47.0/255.0, blue: 167.0/255.0, alpha: 1.0);
+        self.navigationController!.navigationBar.tintColor = UIColor.whiteColor();
+        self.navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
         
         var button = UIBarButtonItem(title: "+", style: UIBarButtonItemStyle.Plain, target: self, action: "add");
         self.navigationItem.rightBarButtonItem = button;
@@ -45,26 +45,26 @@ class RootViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func add(){ /* add view vc */
         var addVC : AddTripViewController = AddTripViewController();
-        self.navigationController.pushViewController(addVC, animated: true);
+        self.navigationController!.pushViewController(addVC, animated: true);
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView!) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1;
     }
     
-    func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell") as GRTAlarmCell;
-//        var stopName : String = manager.routes[indexPath.row] as String;
-//        cell.textLabel.text = stopName;
+        //        var stopName : String = manager.routes[indexPath.row] as String;
+        //        cell.textLabel.text = stopName;
         cell.backgroundColor = UIColor.lightGrayColor();
         return cell;
     }
-    
-    func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
+
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataSource.count;
     }
     
-    func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
         return 100.0;
     }
 }

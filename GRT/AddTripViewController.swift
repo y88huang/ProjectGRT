@@ -32,21 +32,21 @@ class AddTripViewController : UIViewController, UITableViewDataSource, UITableVi
         self.title = "ADD";
     }
     
-    func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var trip : GRTBusTrip = self.routes?[indexPath.row] as GRTBusTrip;
         let cell : UITableViewCell! = tableView.dequeueReusableCellWithIdentifier("cell") as UITableViewCell;
-        cell.textLabel.text = trip.tripName;
+        cell.textLabel!.text = trip.tripName;
         return cell;
     }
     
-    func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return routes!.count;
     }
     
-    func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
         var trip : GRTBusTrip = self.routes![indexPath.row] as GRTBusTrip;
         var DetailVC : TripDetailViewController = TripDetailViewController();
         DetailVC.busTrip = trip;
-        self.navigationController.pushViewController(DetailVC, animated: true);
+        self.navigationController!.pushViewController(DetailVC, animated: true);
     }
 }
