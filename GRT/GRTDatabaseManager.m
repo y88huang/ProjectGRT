@@ -10,6 +10,7 @@
 #import "FMDB.h"
 #import "GRTBusTrip.h"
 #import "GRTBusStop.h"
+#import "GRTDate.h"
 
 #import <UIKit/UIKit.h>
 
@@ -164,19 +165,44 @@ static const NSString *kDBFile = @"grtdatabase.sqlite";
             while ([result next])
             {
                 NSString *arrivalTime = [result stringForColumnIndex:0];
-                NSDate *date = [_dateFormmater dateFromString:arrivalTime];
-                if (!date) {
-                    NSLog(@"bad time %@, tripid is ",arrivalTime, tripID);
-                }
-                NSLog(@"Original string is %@, Formmated date is %@, trip id is %@",arrivalTime, date,tripID);
-//                [times addObject:date];
+                GRTDate *time = [[GRTDate alloc] initWithString:arrivalTime];
+                [times addObject:time];
+//                NSDate *date = [_dateFormmater dateFromString:arrivalTime];
+//                
+//                if (!date) {
+//                    NSLog(@"bad time %@, tripid is ",arrivalTime, tripID);
+//                }
+//                NSLog(@"Original string is %@, Formmated date is %@, trip id is %@",arrivalTime, date,tripID);
+////                [times addObject:date];
             }
             [result close];
         }];
     }
-//    times sortedArrayUsingComparator:^NSComparisonResult(NSDate *obj1, NSDate *obj2) {
-//        return [obj1 com]
-//    }
+    [times sortUsingComparator:^NSComparisonResult(GRTDate *obj1, GRTDate *obj2) {
+        if(obj1.hour != obj2.hour)
+        {
+            if(obj1.hour > obj2.hour)
+                return (NSComparisonResult)NSOrderedDescending;
+            else
+                return (NSComparisonResult)NSOrderedAscending;
+        }
+        if(obj1.minute != obj2.minute)
+        {
+            if(obj1.minute > obj2.minute)
+                return (NSComparisonResult)NSOrderedDescending;
+            else
+                return (NSComparisonResult)NSOrderedAscending;
+        }
+        if(obj1.second > obj2.second)
+            return (NSComparisonResult)NSOrderedDescending;
+        else
+            return (NSComparisonResult)NSOrderedAscending;
+    }];
+    
+    for(GRTDate *date in times)
+    {
+        NSLog(@"%ld:%ld:00",date.hour, date.minute);
+    }
     return times;
 }
 //
