@@ -19,6 +19,7 @@ static const NSString *kDBFile = @"grtdatabase.sqlite";
 {
     FMDatabaseQueue *_dbQueue;
     NSNumberFormatter *_numberFormatter;
+    NSDateFormatter *_dateFormmater;
 }
 
 @end
@@ -33,6 +34,8 @@ static const NSString *kDBFile = @"grtdatabase.sqlite";
         [self initializeDatabase];
         _numberFormatter = [[NSNumberFormatter alloc] init];
         [_numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
+        _dateFormmater = [[NSDateFormatter alloc] init];
+        [_dateFormmater setDateFormat:@"HH:mm:ss"];
     }
     return self;
 }
@@ -152,7 +155,6 @@ static const NSString *kDBFile = @"grtdatabase.sqlite";
 */
 - (NSMutableArray *)getTimesFor:(NSMutableArray *)array StopId:(NSNumber *)stopID
 {
-    NSLog(@"Geting time for stopid %@",stopID);
     NSMutableArray *times = [NSMutableArray array];
     NSString *timeQuery = @"SELECT arrival_time FROM stop_times WHERE trip_id = ? AND stop_id = ?";
     for (NSNumber *tripID in array)
@@ -162,16 +164,28 @@ static const NSString *kDBFile = @"grtdatabase.sqlite";
             while ([result next])
             {
                 NSString *arrivalTime = [result stringForColumnIndex:0];
-                NSLog(@"%@", arrivalTime);
-                [times addObject:arrivalTime];
+                NSDate *date = [_dateFormmater dateFromString:arrivalTime];
+                if (!date) {
+                    NSLog(@"bad time %@, tripid is ",arrivalTime, tripID);
+                }
+                NSLog(@"Original string is %@, Formmated date is %@, trip id is %@",arrivalTime, date,tripID);
+//                [times addObject:date];
             }
             [result close];
         }];
     }
+//    times sortedArrayUsingComparator:^NSComparisonResult(NSDate *obj1, NSDate *obj2) {
+//        return [obj1 com]
+//    }
     return times;
 }
+//
+//- (NSDate *)parseDateForString:(NSString *)time
+//{
+//    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+////    NSTIME
+//}
 
-//- (NSMutableArray *)getTimesForStop:
 - (NSMutableArray *)getStopsForTrip:(GRTBusTrip *)trip
 {
     NSString *query = @"SELECT stops.stop_id, stop_name, stop_sequence FROM (stops JOIN (SELECT * FROM stop_times WHERE trip_id = ?) AS tmp_stops ON tmp_stops.stop_id = stops.stop_id) ORDER BY stop_sequence";
@@ -190,6 +204,7 @@ static const NSString *kDBFile = @"grtdatabase.sqlite";
             [stops addObject:stop];
         }
     }];
+   
     return stops;
 }
 
