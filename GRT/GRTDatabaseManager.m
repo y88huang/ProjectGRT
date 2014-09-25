@@ -167,13 +167,6 @@ static const NSString *kDBFile = @"grtdatabase.sqlite";
                 NSString *arrivalTime = [result stringForColumnIndex:0];
                 GRTDate *time = [[GRTDate alloc] initWithString:arrivalTime];
                 [times addObject:time];
-//                NSDate *date = [_dateFormmater dateFromString:arrivalTime];
-//                
-//                if (!date) {
-//                    NSLog(@"bad time %@, tripid is ",arrivalTime, tripID);
-//                }
-//                NSLog(@"Original string is %@, Formmated date is %@, trip id is %@",arrivalTime, date,tripID);
-////                [times addObject:date];
             }
             [result close];
         }];
@@ -205,12 +198,6 @@ static const NSString *kDBFile = @"grtdatabase.sqlite";
     }
     return times;
 }
-//
-//- (NSDate *)parseDateForString:(NSString *)time
-//{
-//    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-////    NSTIME
-//}
 
 - (NSMutableArray *)getStopsForTrip:(GRTBusTrip *)trip
 {

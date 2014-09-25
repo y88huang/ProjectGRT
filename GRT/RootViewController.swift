@@ -9,11 +9,12 @@
 import UIKit
 
 class RootViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
+
     var tableView : UITableView?;
     let manager = GRTDatabaseManager.sharedInstance() as GRTDatabaseManager;
+    let alertManager = GRTBusAlertManager.sharedInstance() as GRTBusAlertManager;
     
-    var dataSource = [3];
+    var alerts : NSArray = [];
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +25,7 @@ class RootViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     override func viewWillAppear(animated: Bool) {
+        self.alerts = alertManager.getCurrentAlerts();
         self.tableView?.reloadData();
     }
     
@@ -54,13 +56,14 @@ class RootViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell") as GRTAlarmCell;
-      
         cell.backgroundColor = UIColor.lightGrayColor();
+        var alert = self.alerts[indexPath.row] as GRTBusAlert;
+        cell.stopLabel?.text = alert.busStop.stopName;
         return cell;
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataSource.count;
+        return alerts.count;
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat {

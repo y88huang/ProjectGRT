@@ -11,7 +11,7 @@
 
 @interface GRTBusAlertManager ()
 
-@property (nonatomic, strong) NSMutableArray *allTrips;
+@property (nonatomic, strong) NSMutableArray *allAlerts;
 
 @end
 
@@ -22,7 +22,7 @@
     self = [super init];
     if (self)
     {
-        self.allTrips = [NSMutableArray array];
+        self.allAlerts = [NSMutableArray array];
     }
     return self;
 }
@@ -37,9 +37,14 @@
     return sharedInstance;
 }
 
-- (void)addTrip:(GRTBusAlert *)trip
+- (void)addAlert:(GRTBusAlert *)trip
 {
-    [self.allTrips addObject:trip];
+    [self.allAlerts addObject:trip];
+}
+
+- (NSArray *)getCurrentAlerts
+{
+    return self.allAlerts;
 }
 
 @end

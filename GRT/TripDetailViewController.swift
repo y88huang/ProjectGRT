@@ -13,13 +13,17 @@ class TripDetailViewController : UIViewController, UITableViewDataSource, UITabl
     
     var busTrip : GRTBusTrip?;
     var tableView : UITableView?;
+    var dbManager : GRTDatabaseManager?;
+    var alertManager : GRTBusAlertManager?;
     
     override func viewDidLoad() {
         super.viewDidLoad();
         self.view.backgroundColor = UIColor.whiteColor();
         initView();
+        dbManager = GRTDatabaseManager.sharedInstance() as? GRTDatabaseManager;
+        alertManager = GRTBusAlertManager.sharedInstance() as? GRTBusAlertManager;
     }
-    
+
     func initView()
     {
         self.tableView = UITableView(frame: self.view.bounds, style: UITableViewStyle.Plain);
@@ -40,8 +44,11 @@ class TripDetailViewController : UIViewController, UITableViewDataSource, UITabl
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         var stop : GRTBusStop! = self.busTrip?.stops[indexPath.row] as GRTBusStop;
-        var manager : GRTDatabaseManager = GRTDatabaseManager.sharedInstance() as GRTDatabaseManager;
-        manager.fetchTimeTableForStop(stop, ofTrip: busTrip);
+        dbManager!.fetchTimeTableForStop(stop, ofTrip: self.busTrip);
+        
+        var alert : GRTBusAlert = GRTBusAlert(busStop: stop);
+        alertManager!.addAlert(alert);
+        
         self.navigationController?.popToRootViewControllerAnimated(true);
     }
     
