@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		27CE373B19D4BEBA00C08C97 /* GRTDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CE373A19D4BEBA00C08C97 /* GRTDate.m */; };
 		3079668A00C84A129D12EF91 /* libPods-GRT.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2F9B21716274573B6F0EA71 /* libPods-GRT.a */; };
 		697B2F2419D4B54700105527 /* GRTBusAlertManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 697B2F2319D4B54700105527 /* GRTBusAlertManager.m */; };
 		697B2F2719D4B59D00105527 /* GRTBusAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 697B2F2619D4B59D00105527 /* GRTBusAlert.m */; };
@@ -35,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		27CE373919D4BEBA00C08C97 /* GRTDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTDate.h; sourceTree = "<group>"; };
+		27CE373A19D4BEBA00C08C97 /* GRTDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTDate.m; sourceTree = "<group>"; };
 		697B2F2219D4B54700105527 /* GRTBusAlertManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTBusAlertManager.h; sourceTree = "<group>"; };
 		697B2F2319D4B54700105527 /* GRTBusAlertManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTBusAlertManager.m; sourceTree = "<group>"; };
 		697B2F2519D4B59D00105527 /* GRTBusAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTBusAlert.h; sourceTree = "<group>"; };
@@ -121,6 +124,8 @@
 				69DD7E5019C2F33C0054C65D /* GRTBusStop.h */,
 				69DD7E5119C2F33C0054C65D /* GRTBusStop.m */,
 				69DD7E4B19C1EB290054C65D /* GRTAlarmCell.swift */,
+				27CE373919D4BEBA00C08C97 /* GRTDate.h */,
+				27CE373A19D4BEBA00C08C97 /* GRTDate.m */,
 				69DD7E2A19BF319E0054C65D /* Main.storyboard */,
 				69DD7E2D19BF319E0054C65D /* Images.xcassets */,
 				69DD7E2419BF319E0054C65D /* Supporting Files */,
@@ -298,6 +303,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				69DD7E5419C2F7D10054C65D /* AddTripViewController.swift in Sources */,
+				27CE373B19D4BEBA00C08C97 /* GRTDate.m in Sources */,
 				69DD7E2919BF319E0054C65D /* RootViewController.swift in Sources */,
 				69DD7E5619C3F8010054C65D /* TripDetailViewController.swift in Sources */,
 				69DD7E4F19C2E80E0054C65D /* GRTBusTrip.m in Sources */,
