@@ -167,7 +167,7 @@ static const NSString *kDBFile = @"grtdatabase.sqlite";
         FMResultSet *result = [db executeQuery:query withArgumentsInArray:@[trip.stopIDs[0]]];
         while ([result next])
         {
-            NSString *arrival_time = [result stringForColumnIndex:0];
+//            NSString *arrival_time = [result stringForColumnIndex:0];
             NSString *stop_name = [result stringForColumnIndex:1];
 //            NSString *stop_id = [result stringForColumnIndex:2];
             GRTBusStop *stop = [[GRTBusStop alloc] init];
