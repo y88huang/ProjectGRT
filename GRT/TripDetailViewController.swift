@@ -38,6 +38,12 @@ class TripDetailViewController : UIViewController, UITableViewDataSource, UITabl
         return cell;
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        var stop : GRTBusStop! = self.busTrip?.stops[indexPath.row] as GRTBusStop;
+        var manager : GRTDatabaseManager = GRTDatabaseManager.sharedInstance() as GRTDatabaseManager;
+        manager.fetchTimeTableForStop(stop, ofTrip: busTrip);
+    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.busTrip!.stops.count;
     }

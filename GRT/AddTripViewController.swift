@@ -46,6 +46,8 @@ class AddTripViewController : UIViewController, UITableViewDataSource, UITableVi
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
         var trip : GRTBusTrip = self.routes![indexPath.row] as GRTBusTrip;
         var DetailVC : TripDetailViewController = TripDetailViewController();
+        var manager : GRTDatabaseManager = GRTDatabaseManager.sharedInstance() as GRTDatabaseManager;
+        manager.getTripIDsFor(trip);
         DetailVC.busTrip = trip;
         self.navigationController!.pushViewController(DetailVC, animated: true);
     }

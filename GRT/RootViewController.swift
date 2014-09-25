@@ -54,8 +54,7 @@ class RootViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell") as GRTAlarmCell;
-        //        var stopName : String = manager.routes[indexPath.row] as String;
-        //        cell.textLabel.text = stopName;
+      
         cell.backgroundColor = UIColor.lightGrayColor();
         return cell;
     }

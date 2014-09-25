@@ -12,6 +12,7 @@
 
 @property (nonatomic, copy) NSString *stopName;
 @property (nonatomic, strong) NSNumber *stopID;
-@property (nonatomic, strong) NSDate *arrivingTime;
+@property (nonatomic, strong) NSNumber *routeID;
+@property (nonatomic, strong) NSMutableArray *arrivingTimes;
 
 @end

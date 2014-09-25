@@ -37,6 +37,9 @@ static const NSString *kDBFile = @"grtdatabase.sqlite";
     return self;
 }
 
+/*
+ return a GRTManager singleton
+ */
 + (id)sharedInstance
 {
     static GRTDatabaseManager *sharedInstance = nil;
@@ -47,6 +50,9 @@ static const NSString *kDBFile = @"grtdatabase.sqlite";
     return sharedInstance;
 }
 
+/* 
+ Initilize function. Copy the sqlite database from the bundle in to local directory
+ */
 - (void)initializeDatabase
 {
     BOOL success;
@@ -68,26 +74,41 @@ static const NSString *kDBFile = @"grtdatabase.sqlite";
     }
 }
 
+/* 
+ return a dbQueue
+ */
 - (FMDatabaseQueue *)dbQueue
 {
     return [FMDatabaseQueue databaseQueueWithPath:[self dbPath]];
 }
 
+/*
+ return the name of dbFile
+ */
 + (NSString *)dbFile
 {
     return @"grtdatabase.sqlite";
 }
 
+/*
+ Return the complete path of dbfile
+ */
 - (NSString *)dbPath
 {
      return [[NSHomeDirectory() stringByAppendingPathComponent:@"Library"] stringByAppendingPathComponent:@"grtdatabase.sqlite"];
 }
 
+/*
+ Potential update function
+ */
 - (void)dbUpdate
 {
     /*do something */
 }
 
+/*
+ Fetch All the routes info into routes
+ */
 - (void)getAllRoutes
 {
     /*do something */
@@ -98,23 +119,13 @@ static const NSString *kDBFile = @"grtdatabase.sqlite";
         while ([result next])
         {
             NSString *trip_headSign = [result stringForColumnIndex:0];
-//            NSString *trip_id = [result stringForColumnIndex:1];
-//            NSString *route_id = [result stringForColumnIndex:2];
+            
             GRTBusTrip *trip = [[GRTBusTrip alloc] init];
-            
             trip.tripName = trip_headSign;
-//            trip.tripID = [_numberFormatter numberFromString:trip_id];
-//            trip.routeID = [_numberFormatter numberFromString:route_id];
-            
             [self.routes addObject:trip];
-//            NSLog(@"%@",trip_headSign);
         }
         [result close];
     }];
-    for (GRTBusTrip *trip in self.routes)
-    {
-        [self getTripIDsFor:trip];
-    }
 }
 
 - (void)getTripIDsFor:(GRTBusTrip *)trip
@@ -129,26 +140,29 @@ static const NSString *kDBFile = @"grtdatabase.sqlite";
             NSString *trip_id = [result stringForColumnIndex:0];
             NSNumber *tripID = [_numberFormatter numberFromString:trip_id];
             [ids addObject:tripID];
-            NSLog(@"%@ IS %@",trip.tripName, tripID);
         }
         [result close];
     }];
-    trip.times = [self getTimesFor:ids];
-    trip.stopIDs = ids;
+    trip.tripIDs = ids;
     trip.stops = [self getStopsForTrip:trip];
 }
 
-- (NSMutableArray *)getTimesFor:(NSMutableArray *)array
+/* 
+ Fetch the time table with given trips for a specific stop
+*/
+- (NSMutableArray *)getTimesFor:(NSMutableArray *)array StopId:(NSNumber *)stopID
 {
+    NSLog(@"Geting time for stopid %@",stopID);
     NSMutableArray *times = [NSMutableArray array];
-    NSString *timeQuery = @"SELECT arrival_time FROM stop_times WHERE trip_id = ?";
+    NSString *timeQuery = @"SELECT arrival_time FROM stop_times WHERE trip_id = ? AND stop_id = ?";
     for (NSNumber *tripID in array)
     {
         [[self dbQueue] inDatabase:^(FMDatabase *db) {
-            FMResultSet *result = [db executeQuery:timeQuery withArgumentsInArray:@[tripID]];
+            FMResultSet *result = [db executeQuery:timeQuery withArgumentsInArray:@[tripID,stopID]];
             while ([result next])
             {
                 NSString *arrivalTime = [result stringForColumnIndex:0];
+                NSLog(@"%@", arrivalTime);
                 [times addObject:arrivalTime];
             }
             [result close];
@@ -157,26 +171,31 @@ static const NSString *kDBFile = @"grtdatabase.sqlite";
     return times;
 }
 
+//- (NSMutableArray *)getTimesForStop:
 - (NSMutableArray *)getStopsForTrip:(GRTBusTrip *)trip
 {
-    NSString *query = @"SELECT arrival_time, stop_name, stop_sequence FROM (stops JOIN (SELECT * FROM stop_times WHERE trip_id = ?) AS tmp_stops ON tmp_stops.stop_id = stops.stop_id) ORDER BY stop_sequence";
+    NSString *query = @"SELECT stops.stop_id, stop_name, stop_sequence FROM (stops JOIN (SELECT * FROM stop_times WHERE trip_id = ?) AS tmp_stops ON tmp_stops.stop_id = stops.stop_id) ORDER BY stop_sequence";
     
     __block NSMutableArray *stops = [NSMutableArray array];
     
     [[self dbQueue] inDatabase:^(FMDatabase *db) {
-        FMResultSet *result = [db executeQuery:query withArgumentsInArray:@[trip.stopIDs[0]]];
+        FMResultSet *result = [db executeQuery:query withArgumentsInArray:@[trip.tripIDs[0]]];
         while ([result next])
         {
-//            NSString *arrival_time = [result stringForColumnIndex:0];
+            NSString *stop_id = [result stringForColumnIndex:0];
             NSString *stop_name = [result stringForColumnIndex:1];
-//            NSString *stop_id = [result stringForColumnIndex:2];
             GRTBusStop *stop = [[GRTBusStop alloc] init];
             stop.stopName = stop_name;
-//            stop.stopID = [_numberFormatter numberFromString:stop_id];
+            stop.stopID = [_numberFormatter numberFromString:stop_id];
             [stops addObject:stop];
         }
     }];
     return stops;
+}
+
+- (void)fetchTimeTableForStop:(GRTBusStop *)stop OfTrip:(GRTBusTrip *)trip
+{
+    stop.arrivingTimes = [self getTimesFor:trip.tripIDs StopId:stop.stopID];
 }
 
 - (NSMutableArray *)routes
