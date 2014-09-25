@@ -15,5 +15,6 @@
 + (id)sharedInstance;
 
 - (void)addAlert:(GRTBusAlert *)trip;
+- (NSArray *)getCurrentAlerts;
 
 @end

@@ -32,13 +32,13 @@ class GRTAlarmCell : UITableViewCell {
         self.busArriveLabel = UILabel(frame: CGRectZero);
         
         self.routeNumberLabel = UILabel(frame: CGRectZero);
-        self.routeNumberLabel!.text = "8";
+//        self.routeNumberLabel!.text = "8";
         self.routeNumberLabel!.textAlignment = NSTextAlignment.Center;
         self.routeNumberLabel!.textColor = UIColor.whiteColor();
         self.routeNumberLabel!.font = UIFont.boldSystemFontOfSize(50.0);
         
         self.routeDirectionLabel = UILabel(frame: CGRectZero);
-        self.routeDirectionLabel!.text = "University";
+//        self.routeDirectionLabel!.text = "University";
         self.routeDirectionLabel!.textAlignment = NSTextAlignment.Center;
         self.routeDirectionLabel!.textColor = UIColor.whiteColor();
         self.routeDirectionLabel!.font = UIFont .boldSystemFontOfSize(20.0);

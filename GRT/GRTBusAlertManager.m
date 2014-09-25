@@ -42,4 +42,9 @@
     [self.allAlerts addObject:trip];
 }
 
+- (NSArray *)getCurrentAlerts
+{
+    return self.allAlerts;
+}
+
 @end
