@@ -7,7 +7,24 @@
 //
 
 #import "GRTBusAlert.h"
+#import "GRTBusStop.h"
+
+@interface GRTBusAlert ()
+
+@property (nonatomic, strong) GRTBusStop *busStop;
+
+@end
 
 @implementation GRTBusAlert
+
+- (id)initWithBusStop:(GRTBusStop *)stop
+{
+    self = [self init];
+    if (self)
+    {
+        self.busStop = stop;
+    }
+    return self;
+}
 
 @end

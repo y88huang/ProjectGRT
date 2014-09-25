@@ -8,11 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+@class GRTBusStop;
+
 @interface GRTBusAlert : NSObject
 
 @property (nonatomic, copy) NSString *busHeadSign;
-@property (nonatomic, copy) NSString *stopName;
-@property (nonatomic, strong) NSNumber *stopID;
-@property (nonatomic, strong) NSArray *timeTable;
+@property (nonatomic, strong, readonly) GRTBusStop *busStop;
 
+- (id)initWithBusStop:(GRTBusStop *)stop;
 @end

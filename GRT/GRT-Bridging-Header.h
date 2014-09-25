@@ -5,3 +5,5 @@
 #import "GRTDatabaseManager.h"
 #import "GRTBusTrip.h"
 #import "GRTBusStop.h"
+#import "GRTBusAlertManager.h"
+#import "GRTBusAlert.h"

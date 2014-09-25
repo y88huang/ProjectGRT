@@ -8,8 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+@class GRTBusAlert;
+
 @interface GRTBusAlertManager : NSObject
 
 + (id)sharedInstance;
+
+- (void)addAlert:(GRTBusAlert *)trip;
 
 @end
