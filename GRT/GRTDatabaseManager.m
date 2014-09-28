@@ -168,7 +168,6 @@ static const NSString *kDBFile = @"grtdatabase.sqlite";
                 if (!date) {
 //                    NSLog(@"bad time %@, tripid is ",arrivalTime, tripID);
                 }
-                NSLog(@"Original string is %@, Formmated date is %@, trip id is %@",arrivalTime, date,tripID);
 //                [times addObject:date];
             }
             [result close];
@@ -196,7 +195,6 @@ static const NSString *kDBFile = @"grtdatabase.sqlite";
             [stops addObject:stop];
         }
     }];
-   
     return stops;
 }
 
