@@ -22,6 +22,7 @@
  */
 - (void)getTripIDsFor:(GRTBusTrip *)trip;
 
+//
 /*
     Fetch the time table for the GRTBusStop from the tripids specified in GRTBusTrip
  */
