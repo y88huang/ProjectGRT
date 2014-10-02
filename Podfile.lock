@@ -4,11 +4,14 @@ PODS:
   - FMDB/common (2.3)
   - FMDB/standard (2.3):
     - FMDB/common
+  - KVOController (1.0.1)
 
 DEPENDENCIES:
   - FMDB
+  - KVOController
 
 SPEC CHECKSUMS:
   FMDB: 31ec26773c7f7b7890a6038235a1f2bbd933a7cb
+  KVOController: e6ad4a058ab0ceed546802361adb89d322a22cf2
 
 COCOAPODS: 0.32.1
