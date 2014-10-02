@@ -27,7 +27,7 @@
     return self;
 }
 
-+ (id)sharedInstance
++ (instancetype)sharedInstance
 {
     static GRTBusAlertManager *sharedInstance = nil;
     static dispatch_once_t onceToken;

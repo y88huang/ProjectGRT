@@ -4,6 +4,7 @@
 target "GRT" do
 
 pod 'FMDB'
+pod 'KVOController'
 
 end
 

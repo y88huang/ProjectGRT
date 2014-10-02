@@ -12,7 +12,7 @@
 
 @interface GRTBusAlertManager : NSObject
 
-+ (id)sharedInstance;
++ (instancetype)sharedInstance;
 
 - (void)addAlert:(GRTBusAlert *)trip;
 - (NSArray *)getCurrentAlerts;

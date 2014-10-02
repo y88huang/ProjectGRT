@@ -20,8 +20,8 @@ class TripDetailViewController : UIViewController, UITableViewDataSource, UITabl
         super.viewDidLoad();
         self.view.backgroundColor = UIColor.whiteColor();
         initView();
-        dbManager = GRTDatabaseManager.sharedInstance() as? GRTDatabaseManager;
-        alertManager = GRTBusAlertManager.sharedInstance() as? GRTBusAlertManager;
+        dbManager = GRTDatabaseManager.sharedInstance() as GRTDatabaseManager;
+        alertManager = GRTBusAlertManager.sharedInstance() as GRTBusAlertManager;
     }
 
     func initView()

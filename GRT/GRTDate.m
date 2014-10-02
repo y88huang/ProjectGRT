@@ -18,9 +18,16 @@
         NSArray *t = [time componentsSeparatedByString:@":"];
         _hour = [t[0] integerValue];
         _minute = [t[1] integerValue];
-        _second = (NSTimeInterval)[t[2] integerValue];
+        _timeIntervalSinceMidnight = _hour * 3600 + _minute * 60;
     }
     return self;
+}
+
+- (void)consumeTimeInterval:(NSTimeInterval)interval
+{
+    _hour = floor(interval / 3600);
+    _minute = floor((interval - _hour * 3600) / 60);
+    _timeIntervalSinceMidnight = interval;
 }
 
 @end

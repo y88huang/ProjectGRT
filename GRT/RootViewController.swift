@@ -13,6 +13,7 @@ class RootViewController: UIViewController, UITableViewDelegate, UITableViewData
     var tableView : UITableView?;
     let manager = GRTDatabaseManager.sharedInstance() as GRTDatabaseManager;
     let alertManager = GRTBusAlertManager.sharedInstance() as GRTBusAlertManager;
+    let clock = GRTBaseClock.sharedInstance() as GRTBaseClock;
     
     var alerts : NSArray = [];
     
