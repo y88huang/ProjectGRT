@@ -14,7 +14,7 @@
 
 @property (nonatomic, strong) NSMutableArray *routes;
 
-+ (id)sharedInstance;
++ (instancetype)sharedInstance;
 - (void)getAllRoutes;
 
 /*

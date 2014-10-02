@@ -44,7 +44,7 @@ static const NSString *kDBFile = @"grtdatabase.sqlite";
 /*
  return a GRTManager singleton
  */
-+ (id)sharedInstance
++ (instancetype)sharedInstance
 {
     static GRTDatabaseManager *sharedInstance = nil;
     static dispatch_once_t onceToken;
