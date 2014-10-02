@@ -186,7 +186,7 @@ static const NSString *kDBFile = @"grtdatabase.sqlite";
             else
                 return (NSComparisonResult)NSOrderedAscending;
         }
-        if(obj1.second > obj2.second)
+        if(obj1.timeIntervalSinceMidnight > obj2.timeIntervalSinceMidnight)
             return (NSComparisonResult)NSOrderedDescending;
         else
             return (NSComparisonResult)NSOrderedAscending;
