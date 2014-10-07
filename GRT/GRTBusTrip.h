@@ -11,9 +11,7 @@
 @interface GRTBusTrip : NSObject
 
 @property (nonatomic, copy) NSString *tripName;
-@property (nonatomic, strong) NSNumber *routeID;
 @property (nonatomic, strong) NSMutableArray *stops;
 @property (nonatomic, strong) NSMutableArray *tripIDs;
-@property (nonatomic, strong) NSMutableArray *times;
 
 @end

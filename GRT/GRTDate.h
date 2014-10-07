@@ -15,5 +15,4 @@
 
 - (id) initWithString:(NSString*) time;
 - (void)consumeTimeInterval:(NSTimeInterval)interval;
-
 @end

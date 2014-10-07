@@ -60,8 +60,8 @@ class RootViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.backgroundColor = UIColor.lightGrayColor();
         var alert = self.alerts[indexPath.row] as GRTBusAlert;
         cell.stopLabel?.text = alert.busStop.stopName;
-//        cell.routeNumberLabel?.text = alert.busHeadSign;
         cell.routeDirectionLabel?.text = alert.busHeadSign;
+        cell.routeNumberLabel?.text = alert.busHeadSign;
         return cell;
     }
 

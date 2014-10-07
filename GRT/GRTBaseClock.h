@@ -14,6 +14,6 @@
 
 + (instancetype)sharedInstance;
 
-@property (strong, nonatomic, readonly) GRTDate *date;
+@property (strong, nonatomic,readonly) GRTDate *date;
 
 @end

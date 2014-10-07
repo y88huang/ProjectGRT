@@ -9,6 +9,7 @@
 #import "GRTAlarmTableViewCell.h"
 #import "FBKVOController.h"
 #import "GRTBaseClock.h"
+#import "GRTDate.h"
 
 @interface GRTAlarmTableViewCell()
 
@@ -27,6 +28,10 @@
         [self initView];
         self.controller = [FBKVOController controllerWithObserver:self];
         /* observe the clock */
+        GRTBaseClock *clock = [GRTBaseClock sharedInstance];
+        [self.controller observe:clock.date keyPath:@"timeIntervalSinceMidnight" options:NSKeyValueObservingOptionInitial|NSKeyValueObservingOptionNew block:^(GRTAlarmTableViewCell *cell, GRTDate *date, NSDictionary *change) {
+            cell.busArriveLabel.text = [NSString stringWithFormat:@"%f",date.timeIntervalSinceMidnight];
+        }];
     }
     return self;
 }
@@ -58,7 +63,7 @@
     self.stopLabel.font = [UIFont boldSystemFontOfSize:15.0f];
     
     self.busArriveLabel.textColor = [UIColor whiteColor];
-    self.busArriveLabel.text = @"Next Bus:";
+    self.busArriveLabel.text = @"Next Bus: ";
     self.busArriveLabel.textAlignment = NSTextAlignmentLeft;
     self.busArriveLabel.textColor = [UIColor whiteColor];
     self.busArriveLabel.font = [UIFont systemFontOfSize:15.0f];

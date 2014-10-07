@@ -13,7 +13,9 @@
 @interface GRTBusAlert : NSObject
 
 @property (nonatomic, copy) NSString *busHeadSign;
+@property (nonatomic, copy) NSString *busDirection;
 @property (nonatomic, strong, readonly) GRTBusStop *busStop;
 
 - (id)initWithBusStop:(GRTBusStop *)stop;
+
 @end

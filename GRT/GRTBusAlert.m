@@ -23,6 +23,8 @@
     if (self)
     {
         self.busStop = stop;
+        self.busDirection = stop.tripDirection;
+        self.busHeadSign = stop.busName;
     }
     return self;
 }

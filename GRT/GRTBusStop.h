@@ -10,9 +10,11 @@
 
 @interface GRTBusStop : NSObject
 
+@property (nonatomic, strong) NSString *tripDirection;
+@property (nonatomic, strong) NSString *busName;
+
 @property (nonatomic, copy) NSString *stopName;
 @property (nonatomic, strong) NSNumber *stopID;
-@property (nonatomic, strong) NSNumber *routeID;
 @property (nonatomic, strong) NSMutableArray *arrivingTimes;
 
 @end

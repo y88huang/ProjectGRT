@@ -8,6 +8,11 @@
 
 #import "GRTDate.h"
 
+@interface GRTDate()
+@property (nonatomic, readwrite) NSTimeInterval timeIntervalSinceMidnight;
+@property (nonatomic, readwrite) NSInteger hour;
+@property (nonatomic, readwrite) NSInteger minute;
+@end
 @implementation GRTDate
 
 - (id) initWithString:(NSString *)time
@@ -25,9 +30,9 @@
 
 - (void)consumeTimeInterval:(NSTimeInterval)interval
 {
-    _hour = floor(interval / 3600);
-    _minute = floor((interval - _hour * 3600) / 60);
-    _timeIntervalSinceMidnight = interval;
+    self.hour = floor(interval / 3600);
+    self.minute = floor((interval - _hour * 3600) / 60);
+    self.timeIntervalSinceMidnight = interval;
 }
 
 @end

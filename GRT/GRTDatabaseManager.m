@@ -204,7 +204,8 @@ static const NSString *kDBFile = @"grtdatabase.sqlite";
     NSString *query = @"SELECT stops.stop_id, stop_name, stop_sequence FROM (stops JOIN (SELECT * FROM stop_times WHERE trip_id = ?) AS tmp_stops ON tmp_stops.stop_id = stops.stop_id) ORDER BY stop_sequence";
     
     __block NSMutableArray *stops = [NSMutableArray array];
-    
+    NSString *busName = [self getTripNumberFromTripName:trip.tripName];
+    NSString *direction = [self getTripDirectionFromTripName:trip.tripName];
     [[self dbQueue] inDatabase:^(FMDatabase *db) {
         FMResultSet *result = [db executeQuery:query withArgumentsInArray:@[trip.tripIDs[0]]];
         while ([result next])
@@ -213,11 +214,39 @@ static const NSString *kDBFile = @"grtdatabase.sqlite";
             NSString *stop_name = [result stringForColumnIndex:1];
             GRTBusStop *stop = [[GRTBusStop alloc] init];
             stop.stopName = stop_name;
+            stop.tripDirection = direction;
+            stop.busName = busName;
             stop.stopID = [_numberFormatter numberFromString:stop_id];
             [stops addObject:stop];
         }
     }];
     return stops;
+}
+
+- (NSString *)getTripDirectionFromTripName:(NSString *)name
+{
+    //Assume no empty string.
+    NSArray *tokens = [name componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    NSMutableArray *tmpTokens = [NSMutableArray arrayWithArray:tokens];
+    [tmpTokens removeObjectAtIndex:0];
+    if ([tmpTokens count] > 1)
+    {
+        return [tmpTokens componentsJoinedByString:@" "];
+    }
+    return nil;
+}
+
+- (NSString *)getTripNumberFromTripName:(NSString *)name
+{
+    NSArray *tokens = [name componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    NSMutableArray *tmpTokens = [NSMutableArray arrayWithArray:tokens];
+    NSString *tripNumber = tmpTokens[0];
+    if ([tripNumber rangeOfCharacterFromSet:[NSCharacterSet decimalDigitCharacterSet]].location != NSNotFound)
+    {
+        return tripNumber;
+    }else{
+        return [tripNumber substringToIndex:[tripNumber length] -2];
+    }
 }
 
 - (void)fetchTimeTableForStop:(GRTBusStop *)stop OfTrip:(GRTBusTrip *)trip
