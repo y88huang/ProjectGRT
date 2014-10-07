@@ -34,7 +34,7 @@ class RootViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.tableView = UITableView(frame: self.view.bounds, style: UITableViewStyle.Plain);
         self.tableView!.dataSource = self;
         self.tableView!.delegate = self;
-        self.tableView!.registerClass(GRTAlarmCell.self, forCellReuseIdentifier:"cell");
+        self.tableView!.registerClass(GRTAlarmTableViewCell.self, forCellReuseIdentifier:"cell");
         self.tableView!.separatorStyle = UITableViewCellSeparatorStyle.None;
         self.view.addSubview(self.tableView!);
         self.title = "GRT";
@@ -56,7 +56,7 @@ class RootViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell") as GRTAlarmCell;
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell") as GRTAlarmTableViewCell;
         cell.backgroundColor = UIColor.lightGrayColor();
         var alert = self.alerts[indexPath.row] as GRTBusAlert;
         cell.stopLabel?.text = alert.busStop.stopName;

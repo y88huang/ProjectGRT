@@ -16,10 +16,13 @@ class GRTAlarmCell : UITableViewCell {
     var routeDirectionLabel : UILabel?;
     var stopLabel : UILabel?;
     var busArriveLabel: UILabel?;
+    var controller: FBKVOController?;
+    var clock: GRTBaseClock = GRTBaseClock.sharedInstance();
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String!) {
         super.init(style: style, reuseIdentifier: reuseIdentifier);
         self.initView();
+        self.controller = FBKVOController(observer: self);
     }
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
