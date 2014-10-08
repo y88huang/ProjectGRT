@@ -61,7 +61,7 @@
     NSDate *currentDate = [NSDate date];
     NSTimeInterval time = [currentDate timeIntervalSinceDate:date];
     [self.date consumeTimeInterval:time];
-    NSLog(@"Updating");
+//    NSLog(@"Updating");
 }
 
 - (void)dealloc

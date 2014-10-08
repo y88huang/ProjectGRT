@@ -192,10 +192,10 @@ static const NSString *kDBFile = @"grtdatabase.sqlite";
             return (NSComparisonResult)NSOrderedAscending;
     }];
     
-    for(GRTDate *date in times)
-    {
-        NSLog(@"%ld:%ld:00",date.hour, date.minute);
-    }
+//    for(GRTDate *date in times)
+//    {
+//        NSLog(@"%ld:%ld:00",date.hour, date.minute);
+//    }
     return times;
 }
 

@@ -20,7 +20,6 @@
 
 @implementation GRTBusAlertManager
 {
-    FBKVOController *kvoController;
     GRTBaseClock *clock;
 }
 
@@ -30,10 +29,6 @@
     if (self)
     {
         self.allAlerts = [NSMutableArray array];
-        clock = [GRTBaseClock sharedInstance];
-        kvoController = [FBKVOController controllerWithObserver:self];
-        [kvoController observe:clock.date keyPath:@"timeIntervalSinceMidnight" options:NSKeyValueObservingOptionInitial|NSKeyValueObservingOptionNew block:^(GRTBusAlertManager *manager, GRTDate *tmp, NSDictionary *change) {
-            }];
     }
     return self;
 }

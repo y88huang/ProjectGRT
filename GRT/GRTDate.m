@@ -12,6 +12,7 @@
 @property (nonatomic, readwrite) NSTimeInterval timeIntervalSinceMidnight;
 @property (nonatomic, readwrite) NSInteger hour;
 @property (nonatomic, readwrite) NSInteger minute;
+@property (nonatomic, readwrite) NSInteger second;
 @end
 @implementation GRTDate
 
@@ -23,6 +24,7 @@
         NSArray *t = [time componentsSeparatedByString:@":"];
         _hour = [t[0] integerValue];
         _minute = [t[1] integerValue];
+        _second = [t[2] integerValue];
         _timeIntervalSinceMidnight = _hour * 3600 + _minute * 60;
     }
     return self;
@@ -32,6 +34,7 @@
 {
     self.hour = floor(interval / 3600);
     self.minute = floor((interval - _hour * 3600) / 60);
+    self.second = interval - 3600 * self.hour - 60 * self.minute;
     self.timeIntervalSinceMidnight = interval;
 }
 

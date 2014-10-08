@@ -23,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         nav.navigationBar.tintColor = UIColor.blueColor();
         nav.navigationBar.backgroundColor = UIColor.redColor();
         self.window!.rootViewController = nav;
+        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: false);
         return true
     }
 

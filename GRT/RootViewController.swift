@@ -62,6 +62,7 @@ class RootViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.stopLabel?.text = alert.busStop.stopName;
         cell.routeDirectionLabel?.text = alert.busHeadSign;
         cell.routeNumberLabel?.text = alert.busHeadSign;
+        cell.setupViewWithAlert(alert);
         return cell;
     }
 

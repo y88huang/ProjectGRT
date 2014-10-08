@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+@class GRTBusAlert;
 @interface GRTAlarmTableViewCell : UITableViewCell
 
 @property (nonatomic, strong) UIView *leftView;
@@ -16,5 +17,8 @@
 @property (nonatomic, strong) UILabel *routeDirectionLabel;
 @property (nonatomic, strong) UILabel *stopLabel;
 @property (nonatomic, strong) UILabel *busArriveLabel;
+@property (nonatomic, strong) GRTBusAlert *alert;
+
+-(void)setupViewWithAlert:(GRTBusAlert *)alert;
 
 @end
